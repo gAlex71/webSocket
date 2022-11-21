@@ -1,10 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
-import axios from 'axios';
+import React, { useState, useRef } from "react";
 
 const WebSock = () => {
+    const socket = useRef()
     const [messages, setMessages] = useState([])
     const [value, setValue] = useState('')
-    const socket = useRef()
     const [connected, setConnected] = useState(false)
     const [username, setUsername] = useState('')
 
@@ -66,7 +65,7 @@ const WebSock = () => {
                 <div className="form">
                     <input 
                         value={value} 
-                        onChange={e => setValue(e.target.value)} type="text" placeholder="Введите ваше имя"
+                        onChange={e => setValue(e.target.value)} type="text" placeholder="Введите сообщение"
                     />
                     <button onClick={sendMessage}>Отправить</button>
                 </div>
